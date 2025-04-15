@@ -1,0 +1,683 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Tahoma', sans-serif;
+}
+
+#boot-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: #919ef9;
+  font-family: 'Courier New', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  z-index: 9999;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.hidden {
+  display: none;
+}
+
+#desktop {
+  background: url('assets/photos/wallpaper.jpg') no-repeat center center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#icons {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  position: absolute;
+  top: 3em;
+  left: 2em;
+}
+
+.icon {
+  width: 80px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+
+.icon img {
+  width: 48px;
+  height: 48px;
+}
+
+.icon span {
+  font-size: 14px;
+  text-shadow: 1px 1px black;
+}
+
+.minimized {
+  display: none !important;
+}
+
+
+.window {
+  position: absolute;
+  top: 80px;
+  left: 120px;
+  z-index: 10;
+  width: 50em;
+  height: 30em;
+  background-color: grey;
+}
+
+
+#aboutWindow .window-body {
+  display: flex;
+  justify-content: space-between;
+  background: url(assets/photos/bg-welcome.gif) no-repeat center center;
+  color: #fff;
+}
+
+
+.window.centered {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.window.righttop {
+  top: 35%;
+  left: 88%;
+  transform: translate(-50%, -50%);
+}
+
+.window .leftside {
+  padding: 8em 2em;
+}
+
+.window .leftside h1,
+.window .leftside p {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica';
+}
+
+
+.window .leftside h1 {
+  font-size: 3em;
+}
+
+.window .leftside p {
+  font-weight: lighter;
+  font-size: 1.3em;
+}
+
+.window .leftside .socmeds {
+  margin-top: 1em;
+}
+
+.window .leftside img {
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+  margin-right: 1em;
+}
+
+#aboutWindow .rightside {
+  padding: 2em 2em;
+}
+
+
+.rightside.changelog {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+  margin-left: 20px;
+  width: 250px; 
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.rightside.changelog h3 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+.rightside.changelog ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.rightside.changelog li {
+  margin-bottom: 6px;
+}
+
+#projectsWindow {
+  width: 110em;
+  height: 50em;
+}
+
+#projectsWindow .window-body {
+  padding: 3em 3em;
+  height: calc(100% - 35px);
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+#projectsWindow .window-body h1,
+#projectsWindow .window-body h2 {
+  font-family: 'Tahoma';
+}
+
+#projectsWindow .window-body h1 {
+  font-size: 4em;
+  padding: 0;
+  margin: 0;
+}
+
+#projectsWindow .window-body .projectslist {
+  margin-top: 5em;
+}
+
+#projectsWindow .window-body h2 {
+  font-size: 3em;
+}
+
+#projectsWindow .window-body p {
+  font-size: 1.5em
+}
+
+#projectsWindow .window-body li {
+  font-size: 1.3em;
+}
+
+.projectslist {
+  display: flex;
+  gap: 5em;
+  flex-wrap: wrap;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 80px;
+  margin: 10px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+}
+
+.project img {
+  width: 4em;
+  height: 4em;
+  margin-bottom: 0.5em;
+}
+
+.project span {
+  margin-top: 4px;
+}
+
+.sub-project-content {
+  padding: 2em 2em;
+}
+
+#projectsWindow .window-body .sub-project-content .websitesh2 {
+  text-align: center;
+  background: url(assets/photos/websites-bg.gif);
+  background-size: cover;
+  color: #dfdfdf;
+  padding: 2em 2em;
+  font-size: 4em;
+}
+
+.sub-project-content .website {
+  margin-bottom: 5em;
+  margin-top: 5em;
+}
+
+.sub-project-content h3 {
+  text-align: center;
+  font-size: 4em;
+}
+
+#projectsWindow .window-body .sub-project-content p {
+  font-family: 'Tahoma';
+}
+
+.sub-project-content li {
+  margin-bottom: 1em;
+}
+
+.sub-project-content a {
+  font-size: 1.2em;
+}
+
+.sub-project-content button {
+  margin-top: 1em;
+  padding: 5px 10px;
+}
+
+.sub-project-content img {
+  width: 95em;
+  height: 50em;
+}
+
+
+#informationWindow {
+  background: url(assets/photos/bg-info.gif) repeat center;
+  height: 40em;
+  width: 35em;
+  text-align: center;
+  color: #fff;
+}
+
+#informationWindow .window-body {
+  padding: 3em 1em;
+}
+
+#informationWindow .window-body h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 7em;
+}
+
+#informationWindow .window-body p {
+  margin: 0;
+  padding: 0;
+  font-family: 'Tahoma';
+  font-size: 1.3em;
+}
+
+#informationWindow .window-body .content {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  padding: 3em 2em;
+}
+
+#informationWindow .window-body .box-container {
+  width: 23em;
+  height: 14em;
+  padding: 1em 1em;
+  background-color: #fff;
+  border: 0.3em solid;
+  border-color: #808080 #ffffff #ffffff #808080; 
+  background-color: #ffffffa4; 
+  box-shadow: inset -1px -1px 0 #000000, inset 1px 1px 0 #dfdfdf;
+  color: #181556;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+#informationWindow .window-body .box-container h2 {
+  font-size: 1.2em;
+}
+
+#readmeWindow {
+  width: 25em;
+  height: 35em;
+  background: url(assets/photos/readme-bg.png);
+  background-size: cover;
+}
+
+#readmeWindow .window-body h1 {
+  font-size: 3.5em;
+  text-align: right;
+  letter-spacing: 10px;
+  color: #181556;
+}
+
+.scrollreadme {
+  max-height: 13em; /* adjust to your needs */
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.8); /* white with low opacity */
+  padding: 1em;
+  margin-top: 1em;
+  border: 1px solid #ccc;
+  box-shadow: inset -1px -1px 0 #000000, inset 1px 1px 0 #dfdfdf;
+  color: #181556;
+  font-size: 1em;
+  border-radius: 5px;
+}
+
+.scrollreadme p {
+  text-align: justify;
+  font-size: 1.1em;
+  font-family: 'Tahoma';
+}
+
+.scrollreadme h2 {
+  font-size: 1.5em;
+}
+
+.scrollreadme h3 {
+  font-size: 1.6em;
+  font-family: 'Tahoma';
+  margin: 0;
+  padding: 0;
+}
+
+.scrollreadme a {
+  cursor: pointer;
+  font-family: 'Tahoma';
+}
+
+.scrollreadme ul li {
+  margin-bottom: 0.5em;
+  font-size: 1.3em;
+}
+
+.scrollreadme .othersdesc {
+  margin: 0;
+  padding: 0;
+}
+
+#contactWindow .window-body {
+  max-height: 300px; 
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+
+
+.contact-header {
+  font-size: 2.5em;
+  text-align: center;
+  font-family: 'Tahoma';
+}
+
+.social-media-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  margin-bottom: 2em;
+}
+
+.social-media-icons img {
+  width: 2.5em;
+  height: 2.5em;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.social-media-icons img:hover {
+  transform: scale(1.2);
+}
+
+.form-buttons {
+  margin-top: 1.5em;
+  justify-content: flex-start;
+  gap: 1em;
+}
+
+/* About Me Window */
+#aboutmeWindow .aboutme-body {
+  padding: 1rem;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+    url(assets/photos/aboutme-bg.gif); 
+  background-size: cover;
+  background-position: center;
+  max-height: 300px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.aboutme-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.aboutme-left {
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+.aboutme-left h2 {
+  margin: 0.5rem 0 0;
+  font-size: 1.3rem;
+  color: #94c8f3;
+}
+
+.aboutme-tag {
+  font-style: italic;
+  color: #fff;
+  margin-top: 0.3rem;
+}
+
+.aboutme-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  object-fit: cover;
+}
+
+.aboutme-right {
+  flex: 2 1 400px;
+}
+
+.aboutme-right h3,
+.aboutme-right h4 {
+  font-size: 1.2rem;
+  color: #94c8f3;
+}
+
+.aboutme-right p {
+  line-height: 1.5;
+  color: #dfdfdf;
+  font-family: 'Tahoma';
+  text-align: justify;
+  font-size: 1.2em;
+}
+
+.contentabout {
+  gap: 3rem;
+  justify-content: space-between;
+}
+
+.insidecontent {
+  width: 100%;
+  display: flex;  
+}
+
+.left-side {
+  flex: 1; /* Makes the left-side take up more space */
+}
+
+.right-side {
+  flex: 1; /* Makes the right-side take up equal space */
+}
+
+.aboutme-skills,
+.interests {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.5rem;
+  font-family: 'Tahoma';
+  color: #dfdfdf;
+  font-size: 1.2em;
+}
+
+.aboutme-skills li,
+.interests li {
+  margin-bottom: 0.3rem;
+  padding-left: 1rem;
+  text-indent: -1rem;
+}
+
+.albums {
+  display: flex;
+}
+
+.albumexample {
+  margin-right: 2em;
+}
+
+.albumexample img {
+  width: 9em;
+  height: 9em;
+  margin: 0;
+  padding: 0;
+}
+
+.albumexample p {
+  font-size: 0.7rem;
+  color: white;
+  margin: 0;
+  text-align: justify;
+}
+
+
+
+
+
+
+#taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 32px;
+  background: silver;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+
+.start-button {
+  font-size: 14px;
+  padding: 2px 10px;
+}
+
+
+
+.taskbar-clock {
+  font-family: monospace;
+}
+
+#taskbar-windows {
+  display: flex;
+  gap: 4px;
+  margin-left: 8px;
+}
+
+.taskbar-btn {
+  font-family: inherit;
+  padding: 4px 8px;
+  background: silver;
+  border: 2px outset #fff;
+  cursor: pointer;
+}
+
+.taskbar-btn:active {
+  border: 2px inset #aaa;
+}
+
+#powershellWindow {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.window.powershell {
+  width: 600px;
+  background-color: #000;
+  color: #919ef9;
+  font-family: 'Courier New', monospace;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  border: 2px solid #000;
+  z-index: 1000;
+}
+
+.window.powershell.centered {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);;
+}
+
+#powershellWindow .window-body {
+  padding: 10px;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.powershell-output {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.powershell-input-line {
+  display: flex;
+  align-items: center;
+}
+
+.prompt {
+  color: #919ef9;
+  margin-right: 5px;
+}
+
+#powershellInput {
+  background-color: #000;
+  border: none;
+  color: #919ef9;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+}
+
+#startMenu {
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
+  width: 200px;
+  background-color: #c0c0c0;
+  border: 2px solid #000;
+  font-family: 'Tahoma', sans-serif;
+  z-index: 1000;
+}
+
+#startMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#startMenu li {
+  padding: 8px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #999;
+}
+
+#startMenu li:hover {
+  background-color: #000080;
+  color: white;
+}
+
+
+#informationWindow .window-body {
+  background: url(assets/photos/bg-info.gif) repeat center center;
+}
+
+

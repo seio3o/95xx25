@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>95xx25 / Portfolio</title>
+  <link rel="stylesheet" href="https://unpkg.com/98.css">
+  <link rel="stylesheet" href="style.css">
+
+  <audio id="bootSound" src="assets/sounds/boot-sound.mp3" preload="auto"></audio>
+</head>
+<body>
+  <!-- Boot Screen -->
+  <div id="boot-screen">
+    <div class="boot-text"><br>Press SPACE to Open</div>
+  </div>
+
+
+  <section id="desktop">
+
+    <section id="icons">
+        <div class="icon" onclick="openWindow('projectsWindow')">
+        <img src="assets/icons/computer.png" alt="My Portfolio">
+        <span>Projects</span>
+        </div>
+        <div class="icon" onclick="openWindow('aboutmeWindow')">
+        <img src="assets/icons/user.png" alt="About Me">
+        <span>About Me</span>
+        </div>
+        <div class="icon" onclick="openWindow('contactWindow')">
+        <img src="assets/icons/contact.png" alt="Contact">
+        <span>Contact</span>
+        </div>
+        <div class="icon" onclick="openWindow('informationWindow')">
+          <img src="assets/icons/information.png" alt="WebInfo">
+          <span>WebInfo</span>
+        </div>
+        <div class="icon" onclick="openWindow('readmeWindow')">
+          <img src="assets/icons/readme.png" alt="ReadMe">
+          <span>ReadMe</span>
+        </div>
+    </section>
+
+
+    <div id="aboutWindow" class="window centered">
+      <div class="title-bar">
+        <div class="title-bar-text">Welcome</div>
+        <div class="title-bar-controls">
+            <button class="close-btn" data-id="aboutWindow" aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="leftside">
+            <h1>98xx25</h1>
+            <p>portfolio by <br>carlette ann dwayne</p>
+
+            <div class="socmeds">
+                <a href="https://www.facebook.com/motherkeyn/" target="_blank"><img src="assets/icons/facebook.png" alt="" srcset=""></a>
+                <a href="https://www.instagram.com/dndcrl/" target="_blank"><img src="assets/icons/ig.png" alt="" srcset=""></a>
+                <a href="https://github.com/seio3o" target="_blank"><img src="assets/icons/github.png" alt="" srcset=""></a>
+            </div>
+        </div>
+
+        <div class="rightside changelog">
+            <h3>Changelogs</h3>
+                <ul>
+                    <li><strong>apr. 12, 2025</strong> : Initial release</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+
+    <div id="projectsWindow" class="window hidden centered">
+        <div class="title-bar">
+          <div class="title-bar-text">Projects</div>
+          <div class="title-bar-controls">
+            <button class="close-btn" data-id="projectsWindow" aria-label="Close" onclick="closeWindow('projectsWindow')"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <h1>My Projects</h1>
+          <p>These are the projects i successfully made.</p>
+          <div class="projectslist">
+            <div class="project" onclick="openSubProjects('websites')">
+              <img src="assets/icons/projects.png" alt="Websites">
+              <span>WEBSITES</span>
+            </div>
+            <div class="project" onclick="openSubProjects('music')">
+              <img src="assets/icons/projects.png" alt="Music">
+              <span>MUSIC</span>
+            </div>
+          </div>
+          
+          <!-- Hidden subproject content -->
+          <div id="subProjects" class="hidden">
+            <div id="websitesContent" class="sub-project-content hidden">
+              <h2 class="websitesh2">Websites</h2>
+              <div class="website">
+                <h3>FEELMS</h3>
+                <img src="assets\photos\feelms.png" alt="">
+                <p><b>FEELMS</b> is a website designed to recommend movies based on users' emotions or moods. By inputting their current feelings or desired emotional state, users receive curated film suggestions that align with their preferences, creating a more personalized and enjoyable movie-watching experience.
+                    As a film enthusiast, I developed FEELMS to enhance the way I choose movies based on my emotions. Recognizing its appeal, I designed the platform to benefit other film lovers who seek recommendations tailored to their mood.
+                </p>
+
+                <ul>
+                  <li><a href="feelms.netlify.app">Visit the website here</a></li>
+                  <li><a href="https://github.com/seio3o/FEELMS">Visit GitHub source code here</a></li>
+                </ul>
+                
+              </div>
+
+              <hr>
+
+              <div class="website">
+                <h3>ExaMPS</h3>
+                <img src="assets\photos\examps.png" alt="">
+                <p><b>ExaMPS</b> is an online website platform designed to streamline the process of creating, managing, and analyzing examinations. Developed specifically for educators, it simplifies test generation, administration, and result recording, including the Mean Percentage Score (MPS) for performance assessment.</p>
+                  <p>This website was developed as part of our Practical Research 2 study, titled "Development and Testing of an Online Examination System with MPS Recording." It was presented at our school’s annual Research Congress, where our group was the sole representative from the TVL strand.
+                  The entire website was independently designed and coded by me using HTML, CSS, JavaScript, and PHP. However, due to financial constraints, it is not yet publicly accessible online.
+                </p>
+
+                <ul>
+                  <li><a href="https://github.com/seio3o/ExaMPS">Visit GitHub source code here</a></li>
+                </ul>
+                
+              </div>
+              <button onclick="goBackToProjects()">← Back</button>
+            </div>
+          
+            <div id="musicContent" class="sub-project-content hidden">
+              <h2>Music Projects</h2>
+              <ul>
+                <li><a href="#">Beat 1</a></li>
+                <li><a href="#">Beat 2</a></li>
+              </ul>
+              <button onclick="goBackToProjects()">← Back</button>
+            </div>
+          </div>
+          
+
+              
+            </div>   
+          </div>     
+    </div>
+
+    <!-- aboutmeWindow -->
+    <div id="aboutmeWindow" class="window hidden centered">
+      <div class="title-bar">
+        <div class="title-bar-text">About Me</div>
+        <div class="title-bar-controls">
+          <button class="close-btn" data-id="aboutmeWindow" aria-label="Close" onclick="closeWindow('aboutmeWindow')"></button>
+        </div>
+      </div>
+      <div class="window-body aboutme-body">
+        <div class="aboutme-container">
+          <div class="aboutme-left">
+            <img src="assets/photos/myphoto.jpg" alt="Profile Photo" class="aboutme-photo">
+            <h2>Carlette Ann Dwayne</h2>
+            <p class="aboutme-tag">Aspiring Web Developer & Digital Creative</p>
+          </div>
+    
+          <div class="aboutme-right">
+            <h3>About Me</h3>
+            <p>
+              I'm an 18-year-old Computer Science student with a passion for creating digital experiences. 
+              I specialize in front-end web development, combining clean code with unique design. 
+              I also explore music production, video editing, and graphic design on the side.
+            </p>
+            <p>
+              
+            </p>
+    
+            
+            <div class="contentabout">
+              <div class="insidecontent">
+              <div class="left-side">
+                <h4>Skills</h4>
+              <ul class="aboutme-skills">
+                <li>🖥 HTML, CSS, JavaScript, PHP</li>
+                <li>🎨 UI/UX Design (Canva, Figma)</li>
+                <li>🎧 Music Production (FL Studio)</li>
+                <li>🎬 Video Editing</li>
+              </ul>
+              </div>
+
+
+              <div class="right-side">
+                <h4>Interests</h4>
+                <ul class="interests">
+                  <li>Music</li>
+                  <li>Films</li>
+                  <li></li>
+                </ul>
+              </div>
+            </div>
+
+            <div id="favmusic">
+              <h4>Albums that I love</h4>
+              <div class="albums">
+                <div class="albumexample">
+                  <img src="assets\photos\preachersdaughter.jpg" alt="">
+                  <p>Preacher’s Daughter</p>
+                </div>
+
+                <div class="albumexample">
+                  <img src="assets\photos\idisagree.jpg" alt="">
+                  <p>I Disagree</p>
+                </div>
+
+                <div class="albumexample">
+                  <img src="assets\photos\hyperview.jpg" alt="">
+                  <p>Hyperview</p>
+                </div>  
+
+                <div class="albumexample">
+                  <img src="assets\photos\htatm.jpg" alt="">
+                  <p>Heaven to a Tortured Mind</p>
+                </div>  
+              </div>
+            </div>
+
+            <div id="favfilms">
+              <h4>Films that I love</h4>
+            </div>
+          </div>
+    
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+
+
+    <!-- readme -->
+
+    <div id="readmeWindow" class="window righttop">
+      <div class="title-bar">
+        <div class="title-bar-text">Pls Read Me!</div>
+        <button class="close-btn" data-id="readmeWindow" aria-label="Close" onclick="closeWindow('readmeWindow')"></button>
+      </div>
+      <div class="window-body">
+        <h1>Hello!</h1>
+        <div class="scrollreadme">
+          <p><b>Welcome to my portfolio website!</b></p> 
+          <p>I'm glad you're here. This site showcases my projects, skills, and passions as a <b>Web Developer / Designer / Editor / Music Producer.</b> Designed with a retro Windows 95 theme, it’s a unique way to explore my creative and technical work. </p>
+          <p>This space showcases my passion projects, skills, and creative journey in design, development, and everything in between. Whether you're a recruiter, a fellow creative, or someone just curious, I hope you enjoy exploring my work!</p>
+          <p>Some of the visuals and elements featured in this portfolio are a mix of my own creations and resources from talented artists and developers across the web.</p>
+          <p>Feel free to click around, explore the projects, and get in touch if something catches your eye.
+            This portfolio is a living space. I’ll be updating it regularly with new work, learnings, and experiments.
+            Thanks again for stopping by.
+          </p>
+          <h2>Quick Navigation</h2>
+          <h3>Main</h3>
+          <ul>
+            <li><a onclick="openWindow('projectsWindow')">Projects</a></li>
+            <li><a onclick="openWindow('contactWindow')">Contact</a></li>
+            <li><a onclick="openWindow('aboutmeWindow')">About Me</a></li>
+            <li><a onclick="openWindow('informationWindow')">Website Information</a></li>
+          </ul>
+          <h3>Others</h3>
+          <p class="othersdesc">fun stuff i made here</p>
+          <ul>
+            <li><a onclick="openWindow('powershellWindow')">PowerShell</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- contact popup success -->
+    <div id="successPopup" class="window hidden centered" style="width: 300px;">
+      <div class="title-bar">
+        <div class="title-bar-text">Success</div>
+        <div class="title-bar-controls">
+          <button onclick="document.getElementById('successPopup').classList.add('hidden')"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <p>Your message has been sent successfully!</p>
+        <button onclick="document.getElementById('successPopup').classList.add('hidden')">OK</button>
+      </div>
+    </div>
+
+    <!-- contact -->
+    <div id="contactWindow" class="window hidden centered">
+      <div class="title-bar">
+        <div class="title-bar-text">Contact Me</div>
+        <div class="title-bar-controls">
+          <button class="close-btn" data-id="contactWindow" aria-label="Close" onclick="closeWindow('contactWindow')"></button>
+        </div>
+      </div>
+      <div class="window-body">
+
+        <h1 class="contact-header">Get in Touch</h1>
+
+        <div class="social-media-icons">
+          <a href="https://facebook.com/motherkeyn" target="_blank"><img src="assets\icons\facebook.png"></a>
+          <a href="https://github.com/seio3o" target="_blank"><img src="assets/icons/github.png" alt="GitHub"></a>
+          <a href="https://www.instagram.com/dndcrl/" target="_blank"><img src="assets\icons\ig.png" alt="LinkedIn"></a>
+        </div>
+
+        <h1 class="contact-header">Got any messages?</h1>
+
+        <form id="contactForm" action="https://formspree.io/f/xanevbla" method="POST">
+          <div class="field-row-stacked">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required>
+          </div>
+    
+          <div class="field-row-stacked">
+            <label for="email">Your Email</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+    
+          <div class="field-row-stacked">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+    
+          <div class="field-row" style="margin-top: 10px;">
+            <button type="submit">Send</button>
+            <button type="reset">Clear</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    
+    
+    
+    
+    
+    <!-- info -->
+      <div id="informationWindow" class="window hidden centered">
+        <div class="title-bar">
+        <div class="title-bar-text">Website Information</div>
+        <div class="title-bar-controls">
+        <button class="close-btn" data-id="informationWindow" aria-label="Close" onclick="closeWindow('informationWindow')"></button>
+        </div>
+       </div>
+
+       <div class="window-body">
+          <h1>95xx25</h1>
+          <p>A portfolio in the style of Windows 95.</p>
+
+          <section class="content">
+            <div class="box-container">
+
+             
+
+              <h2>Languages used:</h2>
+              <p>HTML, CSS & JS</p>
+
+              <br>
+
+              <h2>Code editor:</h2>
+              <p>Visual Studio Code</p>
+
+              <br>
+
+              <h2>Design system used:</h2>
+              <p>98.css</p>
+
+              <br>
+
+              <h2>Created & Designed by:</h2>
+              <p>Carlette Ann Dwayne</p>
+
+              <br>
+
+              <h2>
+                2025
+              </h2>
+
+              <p>enter "credits" in powershell to see all credited users</p>
+
+
+            </div>
+
+            
+          </section>
+        
+       </div>
+
+       
+       
+
+       </div>
+      
+      
+  </section>
+
+
+
+    <!-- Taskbar -->
+    <div id="taskbar">
+        <button class="start-button">Start</button>
+        <div id="taskbar-windows"></div>
+        <div class="taskbar-clock" id="clock">12:00</div>
+    </div>
+
+    <div id="startMenu" class="hidden">
+      <ul>
+        <li onclick="openPowerShell()">Windows PowerShell</li>
+        <!-- You can add more apps here -->
+      </ul>
+    </div>
+
+    <div class="window powershell hidden centered" id="powershellWindow">
+      <div class="title-bar">
+        <div class="title-bar-text">PowerShell</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close" onclick="closePowerShell()"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <div id="powershellOutput" class="powershell-output"></div>
+
+        <div id="powershellWelcome" class="powershell-welcome">
+          Type <code>help</code> to see available commands.
+        </div>
+
+        <div class="powershell-input-line">
+          <span class="prompt">C:\Users\Guest&gt;</span>
+          <input type="text" id="powershellInput" onkeydown="handleCommand(event)" autofocus />
+        </div>
+      </div>
+    </div>
+    
+    
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
