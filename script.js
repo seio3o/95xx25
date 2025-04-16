@@ -15,6 +15,33 @@ document.addEventListener("keydown", function (e) {
       }, 1000);
     }
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const bootScreen = document.getElementById("boot-screen");
+    const desktop = document.getElementById("desktop");
+    const bootSound = document.getElementById("bootSound");
+  
+
+    bootScreen.addEventListener("click", openDesktop);
+    bootScreen.addEventListener("touchstart", openDesktop); 
+  
+    function openDesktop() {
+      bootSound.play();
+  
+
+      bootScreen.style.transition = "opacity 1s ease";
+      bootScreen.style.opacity = 0;
+  
+      
+      setTimeout(() => {
+        bootScreen.style.display = "none";
+        desktop.classList.remove("hidden");
+      }, 1000);
+    }
+  });
+  
+
+
   
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -25,25 +52,20 @@ document.addEventListener("keydown", function (e) {
       });
     });
   });
-
-  document.querySelectorAll('.window').forEach(win => {
-    const id = win.getAttribute('id');
-    if (id) {
-      const taskbarBtn = document.createElement("button");
-      taskbarBtn.className = "taskbar-btn";
-      taskbarBtn.textContent = win.querySelector(".title-bar-text")?.textContent || "Window";
-      taskbarBtn.setAttribute("data-id", id);
-      taskbarBtn.addEventListener("click", () => toggleWindow(id));
-      document.getElementById("taskbar-windows").appendChild(taskbarBtn);
-    }
-  });
   
   function minimizeWindow(id) {
     const win = document.getElementById(id);
     if (win) {
-      win.classList.add('minimized');
+        win.classList.add('minimized');
+
+        const taskbarBtn = document.querySelector(`.taskbar-btn[data-id="${id}"]`);
+        if (taskbarBtn) {
+            taskbarBtn.remove(); 
+        }
     }
-  }
+}
+
+
   
   function openWindow(id) {
     const win = document.getElementById(id);
@@ -63,14 +85,18 @@ document.addEventListener("keydown", function (e) {
 }
   
   
-  function toggleWindow(id) {
-    const win = document.getElementById(id);
-    if (win.classList.contains("minimized")) {
+function toggleWindow(id) {
+  const win = document.getElementById(id);
+  if (win.classList.contains("minimized")) {
       win.classList.remove("minimized");
-    } else {
+  } else {
       win.classList.add("minimized");
-    }
   }
+}
+
+
+
+
   
   
   
@@ -119,7 +145,7 @@ document.addEventListener("keydown", function (e) {
       document.getElementById('powershellWindow').style.display = 'none';
     }
 
-    // Toggle Start Menu
+
 const startBtn = document.querySelector('.start-button');
 const startMenu = document.getElementById('startMenu');
 
@@ -127,7 +153,7 @@ startBtn.addEventListener('click', () => {
   startMenu.classList.toggle('hidden');
 });
 
-// Open PowerShell from Start Menu
+
 function openPowerShell() {
   const powershell = document.getElementById('powershellWindow');
   powershell.classList.remove('hidden');
@@ -137,7 +163,7 @@ function openPowerShell() {
   document.getElementById("powershellInput").focus();
 }
 
-// Close PowerShell
+
 function closePowerShell() {
   const powershell = document.getElementById('powershellWindow');
   powershell.classList.add('hidden');
@@ -187,18 +213,18 @@ function handleCommand(event) {
 }
 
 function openSubProjects(projectName) {
-  // Hide the main folder list
+
   document.querySelector('.projectslist').classList.add('hidden');
 
-  // Show subProjects container
+
   document.getElementById('subProjects').classList.remove('hidden');
 
-  // Hide all subproject content
+
   document.querySelectorAll('.sub-project-content').forEach(content => {
     content.classList.add('hidden');
   });
 
-  // Show only the selected content
+
   const target = document.getElementById(projectName + 'Content');
   if (target) {
     target.classList.remove('hidden');
@@ -206,10 +232,10 @@ function openSubProjects(projectName) {
 }
 
 function goBackToProjects() {
-  // Show main folder list again
+
   document.querySelector('.projectslist').classList.remove('hidden');
 
-  // Hide subProjects and all subproject content
+
   document.getElementById('subProjects').classList.add('hidden');
   document.querySelectorAll('.sub-project-content').forEach(content => {
     content.classList.add('hidden');

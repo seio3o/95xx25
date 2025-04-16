@@ -234,7 +234,7 @@ body, html {
   padding: 2em 2em;
 }
 
-#projectsWindow .window-body .sub-project-content .websitesh2 {
+#projectsWindow .window-body .sub-project-content .websitesh21 {
   text-align: center;
   background: url(assets/photos/websites-bg.gif);
   background-size: cover;
@@ -341,9 +341,9 @@ body, html {
 }
 
 .scrollreadme {
-  max-height: 13em; /* adjust to your needs */
+  max-height: 13em; 
   overflow-y: auto;
-  background-color: rgba(255, 255, 255, 0.8); /* white with low opacity */
+  background-color: rgba(255, 255, 255, 0.8); 
   padding: 1em;
   margin-top: 1em;
   border: 1px solid #ccc;
@@ -423,7 +423,7 @@ body, html {
   gap: 1em;
 }
 
-/* About Me Window */
+
 #aboutmeWindow .aboutme-body {
   padding: 1rem;
   background: 
@@ -496,11 +496,11 @@ body, html {
 }
 
 .left-side {
-  flex: 1; /* Makes the left-side take up more space */
+  flex: 1; 
 }
 
 .right-side {
-  flex: 1; /* Makes the right-side take up equal space */
+  flex: 1; 
 }
 
 .aboutme-skills,
@@ -679,5 +679,10 @@ body, html {
 #informationWindow .window-body {
   background: url(assets/photos/bg-info.gif) repeat center center;
 }
+
+.taskbar-btn.minimized {
+  display: none;
+}
+
 
 
