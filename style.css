@@ -234,7 +234,7 @@ body, html {
   padding: 2em 2em;
 }
 
-#projectsWindow .window-body .sub-project-content .websitesh21 {
+#projectsWindow .window-body .sub-project-content .websitesh2 {
   text-align: center;
   background: url(assets/photos/websites-bg.gif);
   background-size: cover;
@@ -246,6 +246,10 @@ body, html {
 .sub-project-content .website {
   margin-bottom: 5em;
   margin-top: 5em;
+}
+
+#projectsWindow .window-body .sub-project-content .musich2 {
+  text-align: center;
 }
 
 .sub-project-content h3 {
@@ -553,6 +557,21 @@ body, html {
 .filmexample img {
   width: 9em;
   height: 13em;
+  margin: 0;
+  padding: 0;
+}
+
+.filmexample p {
+  font-size: 0.7rem;
+  color: white;
+  margin: 0;
+  text-align: justify;
+}
+
+.albumexample i,
+.filmexample i {
+  color: #ccc;
+  font-family: 'Tahoma';
 }
 
 
