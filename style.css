@@ -542,6 +542,19 @@ body, html {
   text-align: justify;
 }
 
+.filmslist {
+  display: flex;
+}
+
+.filmexample {
+  margin-right: 2em;
+}
+
+.filmexample img {
+  width: 9em;
+  height: 13em;
+}
+
 
 
 
